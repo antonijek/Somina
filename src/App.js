@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./assets/output.css";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </ul>
          <button className='bg-blue-400 w-10 h-6 hover:bg-green-200  font-black'>EN</button>
     </nav>
+    <Footer/>
 
 
 </div>

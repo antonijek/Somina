@@ -7,12 +7,12 @@ class Header extends Component {
   state = {  }
   render() { console.log(this.props)
     return ( 
-      <div className=" bg-blue-200 min-w-full  ">
+      <div className=" bg-blue-200  border-t-4 border-b-4 border-blue-300  ">
       <nav className="flex  md:justify-between">
-          <div className="flex w-full justify-between">
-            <img src='https://www.eparhija.me/images/manastir-somina.jpg' className= ' w-28 md:w-24'></img>
+          <div className="flex w-full justify-between flex-col">
+            <img src='https://www.eparhija.me/images/manastir-somina.jpg' className= 'border-l-4 border-r-4 border-blue-300 w-36 md:w-64 '></img>
   
-             <button onClick={this.props.menubutton} className="md:hidden bg-blue-500 w-20 h-10 font-bold  uppercase mt-4 ">
+             <button onClick={this.props.menubutton} className="md:hidden   font-bold text-xl uppercase text-right -mr-8">
                menu
                </button>
               
@@ -20,7 +20,7 @@ class Header extends Component {
               
             
           </div>
-         
+
           <ul className="hidden md:flex items-center  font-bold pr-4 " id="mobileMenu">
               <li className="pr-5 hover:underline "><a href='#'> Istorijat </a></li>
               <li className="pr-5 hover:underline"><a href='#'>Galerija</a></li>
@@ -32,7 +32,7 @@ class Header extends Component {
           </div>
           
       </nav>
-     <ul className='text-right font-bold mr-12' >{this.props.menu.map(item=> <li key={item}>{item}</li>)}</ul>
+     <ul className='text-right font-bold mr-2' >{this.props.menu.map(item=> <li key={item}>{item}</li>)}</ul>
       
   </div>
 

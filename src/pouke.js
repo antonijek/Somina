@@ -7,7 +7,10 @@ class Pouke extends Component {
   state = {};
   render() {
     console.log(this.props);
-    return <div className='bg-purple-500'>...pouke</div>;
+    return <div className='invisible md:visible bg-yellow-300' >...pouke
+    
+    
+    </div>;
   }
 }
 

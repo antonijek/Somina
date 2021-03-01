@@ -7,7 +7,7 @@ class Recepti extends Component {
   state = {};
   render() {
     console.log(this.props);
-    return <div className='bg-red-500' >...recepti</div>;
+    return <div className='invisible md:visible bg-green-300' >...recepti</div>;
   }
 }
 

@@ -7,7 +7,7 @@ class Onama extends Component {
   state = {};
   render() {
     console.log(this.props);
-    return <div className='bg-yellow-500'>...O nama</div>;
+    return <div className='invisible md:visible bg-red-300' >...O nama</div>;
   }
 }
 

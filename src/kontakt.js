@@ -7,7 +7,7 @@ class Kontakt extends Component {
   state = {};
   render() {
     console.log(this.props);
-    return <div className='bg-green-500' >...kontakt</div>;
+    return <div className='invisible md:visible bg-indigo-300' >...kontakt</div>;
   }
 }
 

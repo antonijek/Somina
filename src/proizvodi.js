@@ -7,7 +7,7 @@ class Proizvodi extends Component {
   state = {};
   render() {
     console.log(this.props);
-    return <div className='bg-blue-500'>...proizvodi</div>;
+    return <div className='invisible md:visible bg-blue-300' >...proizvodi</div>;
   }
 }
 

@@ -1,19 +1,18 @@
-import logo from "./logo.svg";
-import "./assets/output.css";
+import logo from './logo.svg'
+import './assets/output.css'
 
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-class Pouke extends Component {
-  state = {ime:''};
+class Teachings extends Component {
+  state = { ime: '' }
 
-  pr=(e)=>{
-    this.setState({ime:e.target.value})
+  pr = (e) => {
+    this.setState({ ime: e.target.value })
     console.log(e.target.value)
   }
   render() {
-   return <div className=" md:visible bg-yellow-300">...pouke
-   </div>;
+    return <div className='font-sans bg-yellow-300'>...Teachings</div>
   }
 }
 
-export default Pouke;
+export default Teachings

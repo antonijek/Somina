@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import Header from './Header.js'
-import './App.css'
-import './assets/output.css'
-import Footer from './Footer'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Products from './Products'
-import Aboutus from './about us'
-import Recipes from './Recipes'
-import Teachings from './Teachings'
-import Contact from './Contact.js'
-import Tests from './Tests.js'
-import { useState, useEffect } from 'react'
+
+import React, { Component } from 'react';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Aboutus from './about-us';
+import Contact from './contact.js';
+import Footer from './Footer';
+import Header from './header';
+import Products from './products';
+import Recipes from './recipes';
+import Teachings from './teachings';
+import Tests from './Tests.js';
 
 const array = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },

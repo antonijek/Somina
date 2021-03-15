@@ -1,7 +1,4 @@
-import logo from './logo.svg'
-import './assets/output.css'
-
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Teachings extends Component {
   state = { ime: '' }

@@ -1,6 +1,3 @@
-import logo from "./logo.svg";
-import "./assets/output.css";
-
 import React, { Component } from "react";
 
 class Aboutus extends Component {

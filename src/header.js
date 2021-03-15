@@ -1,14 +1,13 @@
-import logo from './logo.svg'
-import './assets/output.css'
-import { useState, useEffect } from 'react'
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const english = ['aboutus', 'recipes', 'teachings', 'contact', 'products']
 const Header = (props) => {
-  const [isOpen, setIsOpen] = useState(true)
-  const [menu, setMenu] = useState([])
-  const [en, setEn] = useState([])
+  const [isOpen, setIsOpen] = useState(true);
+  const [menu, setMenu] = useState([]);
+  const [en, setEn] = useState([]);
 
   const language = () => {
     en.length === 0 ? setEn(['EN', 'SR']) : setEn([])

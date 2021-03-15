@@ -1,7 +1,6 @@
-import logo from './logo.svg'
-import './assets/output.css'
-import { Link } from 'react-router-dom'
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 const products = ['Melem', 'Caj', 'Kapi', 'Med', 'Sir', 'Rakija']
 
 const Products = () => {

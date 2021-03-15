@@ -2,22 +2,12 @@
   "name": "somina",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
-    "web-vitals": "^1.1.0"
-  },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run watch:css && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/output.css"
+    "tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "start": "npm run tailwind && craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -37,10 +27,21 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "web-vitals": "^1.1.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^10.2.4",
-    "postcss": "^8.2.6",
-    "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.0.3"
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
   }
 }

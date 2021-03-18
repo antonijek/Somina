@@ -12,8 +12,8 @@ const Tests = () => {
   }, [])
 
   return (
-    <div>
-      <h2 className='font-bold mb-8'>Ovo su neki podaci sa nekog servera:</h2>
+    <div className="container mx-auto px-4">
+      <h2 className='font-bold mb-8 text-blue-100 hover:text-blue-200'>Ovo su neki podaci sa nekog servera:</h2>
       {text.map((item) => (
         <h3 key={item.id}>
           {item.id + ' '}

@@ -19,7 +19,7 @@ const Tests = () => {
     return <div className='text-center mt-48'>Loading...</div>
   }
   return (
-    <div className='ml-4 container  mx-auto '>
+    <div className='px-4 container mx-auto '>
       <h2 className='font-bold mb-8'>Ovo su podaci sa nekog servera:</h2>
       {text.map((item) => (
         <h3 key={item.id}>

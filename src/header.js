@@ -89,6 +89,12 @@ const Header = (props) => {
           </Link>
         ))}
       </ul>
+      <div className='w-full h-20 text-center bg-blue-200 text-white font-sans text-42 flex justify-center'>
+        <span className='flex sm:hidden'>XS</span>
+        <span className='hidden sm:flex md:hidden'>SM</span>
+        <span className='hidden md:flex lg:hidden'>MD</span>
+        <span className='hidden lg:flex '>LG</span>
+      </div>
     </div>
   )
 }

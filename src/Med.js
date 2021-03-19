@@ -47,11 +47,11 @@ const Proizvod = () => {
   }
 
   return (
-    <div className=' container  mx-auto relative'>
+    <div className=' container  mx-auto'>
       {Proiz.map((item) => (
-        <div key={item.id}>
+        <div>
           <h2
-            className=' bg-gray-300 text-center'
+            className=' bg-red-500'
             onClick={(e) => {
               dugme(item)
             }}
@@ -61,11 +61,10 @@ const Proizvod = () => {
         </div>
       ))}
 
-      <div className='mt-8 text-center'>
-        <p className='bg-gray-500 text-green-500 text-2xl'>{pro.name}</p>
-        <p className='bg-gray-500  text-green-500 text-2xl'>{pro.id}</p>
-
-        <p className=' bg-gray-500 text-green-500 text-2xl'>{pro.cijena}</p>
+      <div className='mt-8 border-2'>
+        <p className='bg-yellow-500  text-green-500 text-2xl'>{pro.id}</p>
+        <p className='bg-black-500 text-green-500 text-2xl'>{pro.name}</p>
+        <p className=' bg-indigo-500 text-green-500 text-2xl'>{pro.cijena}</p>
         <p className=' bg-gray-500 text-green-500 text-2xl'>{pro.slika}</p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Teachings extends Component {
   state = { ime: '' }
@@ -8,7 +8,11 @@ class Teachings extends Component {
     console.log(e.target.value)
   }
   render() {
-    return <div className='font-sans bg-yellow-300'>...Teachings</div>
+    return (
+      <div className='font-sans bg-yellow-300  container  mx-auto '>
+        ...Teachings
+      </div>
+    )
   }
 }
 

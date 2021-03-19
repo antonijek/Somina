@@ -1,16 +1,16 @@
-
-import React, { Component } from 'react';
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Aboutus from './about-us';
-import Contact from './contact.js';
-import Footer from './Footer';
-import Header from './header';
-import Products from './products';
-import Recipes from './recipes';
-import Teachings from './teachings';
-import Tests from './Tests.js';
+import React, { Component } from 'react'
+import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Error from './Error.js'
+import Aboutus from './about-us'
+import Contact from './contact.js'
+import Footer from './Footer'
+import Header from './header'
+import Products from './products'
+import Recipes from './recipes'
+import Teachings from './teachings'
+import Tests from './Tests.js'
+import SkrolovaniMenu from './SkrolovaniMenu.js'
 
 const array = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },
@@ -18,24 +18,31 @@ const array = [
   { component: Recipes, string: 'recipes', path: '/recipes' },
   { component: Teachings, string: 'teachings', path: '/teachings' },
   { component: Contact, string: 'contact', path: '/contact' },
+  { component: Tests, string: 'tests', path: '/tests' },
 ]
 
 const App = () => {
-  return (
-    <Router>
-      <div>
-        <Header />
+  const [show, setShow] = useState(false)
 
-        {array.map((item) => (
-          <Route key={item.string} path={item.path}>
-            {<item.component />}
+  useEffect(() => {
+    window.onscroll = () => {
+      window.pageYOffset > 100 ? setShow(true) : setShow(false)
+    }
+  })
+
+  return (
+    <div className='container mx-auto   mr-4 ml-4'>
+      <Router>
+        <Header />
+        <Footer />
+        {show && <SkrolovaniMenu />}
+        {array.map((obj) => (
+          <Route key={obj.string} path={obj.path}>
+            {<obj.component />}
           </Route>
         ))}
-
-        <Footer />
-        <Tests />
-      </div>
-    </Router>
+      </Router>
+    </div>
   )
 }
 

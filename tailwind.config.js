@@ -15,41 +15,8 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				transparent: 'transparent',
-				current: 'currentColor',
-				black: '#000000',
-				white: '#FFFFFF',
 				green: {
-					100: '#8fb148',
-					200: '#78885A',
-					300: '#f4fce8'
-				},
-				yellow: {
-					100:'#ffe582',
-					200:'#ffd235'
-				},
-				blue: {
-					100:'#2d59ff',
-					200: '#164193',
-					300: '#5f95fc'
-				},
-				brown:{
-					100: '#6b5b45',
-					200: '#a18764'
-				},
-				gray: {
-					100: '#9b9b9b',
-					200: '#1e2022',
-					300: '#C9D6DF',
-					400: '#f0f5f9',
-					500: '#eeeeee',
-					600: '#cccccc',
-					700: '#333333'
-				},
-				ui: {
-					'info': '#0055de',
-					'success': '#88AC42',
-					'error': '#F03939'
+					100: '#eee'
 				}
 			},
 			placeholderColor: theme => theme('colors'),

@@ -31,7 +31,7 @@ const App = () => {
   })
 
   return (
-    <div className='container mx-auto   mr-4 ml-4'>
+ 
       <Router>
         <Header />
         <Footer />
@@ -42,7 +42,7 @@ const App = () => {
           </Route>
         ))}
       </Router>
-    </div>
+
   )
 }
 

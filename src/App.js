@@ -11,6 +11,7 @@ import Recipes from './recipes'
 import Teachings from './teachings'
 import Tests from './Tests.js'
 import SkrolovaniMenu from './SkrolovaniMenu.js'
+import Gallery from './Gallery';
 
 const array = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },
@@ -34,13 +35,14 @@ const App = () => {
     <div className='container mx-auto   mr-4 ml-4'>
       <Router>
         <Header />
-        <Footer />
         {show && <SkrolovaniMenu />}
         {array.map((obj) => (
           <Route key={obj.string} path={obj.path}>
             {<obj.component />}
           </Route>
         ))}
+        <Gallery/>
+        <Footer />
       </Router>
     </div>
   )

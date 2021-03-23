@@ -2,8 +2,16 @@ import { useEffect, useState } from 'react'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-const firstMenu = ['aboutus', 'recipes', 'teachings']
-const secondMenu = ['contact', 'products', 'tests']
+const firstMenu = [
+  { sr: 'O nama', en: 'aboutus', slika: '../slike/slika1.png' },
+  { sr: 'Recepti', en: 'recipes', slika: '../slike/slika2.png' },
+  { sr: 'Pouke', en: 'teachings', slika: '../slike/slika3.png' },
+]
+const secondMenu = [
+  { sr: 'Kontakt', en: 'contact', slika: '../slike/slika4.png' },
+  { sr: 'Proizvodi', en: 'products', slika: '../slike/slika5.png' },
+  { sr: 'Test', en: 'tests', slika: '../slike/slika6.png' },
+]
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(true)
@@ -28,39 +36,52 @@ const Header = (props) => {
   }, [isOpen])
 
   return (
-    <div className='container  mx-auto relative bg-blue-400  h-24'>
+    <div on className='container  mx-auto relative bg-blue-400  h-24'>
       <nav className='flex md:ml-24 justify-between'>
         <ul className='hidden md:flex    pr-3  '>
           {firstMenu.map((item) => (
-            <Link className='flex-none' key={item} to={item}>
+            <Link className='flex-none' key={item.en} to={item.en}>
               {' '}
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
-                {item}
+                {item.sr}
               </li>
-              <div className='ml-4 w-12 h-12 border rounded-3xl '>vinjeta</div>
+              <img
+                alt=''
+                src={item.slika}
+                className='ml-4 w-12 h-12 border rounded-3xl '
+              ></img>
             </Link>
           ))}
         </ul>
         <Link to='/'>
-          <div className=' w-20 h-20 border rounded-3xl text-center p-4'>
-            LOGO
+          <div className='w-24 h-24 '>
+            <img
+              className=' w-28 h-28 rounded-2xlobject-none text-center '
+              src='../slike/slika7.png'
+              alt=''
+            />
           </div>
         </Link>
 
         <ul className='hidden md:flex   pr-3  '>
           {secondMenu.map((item) => (
-            <Link className='flex-none' key={item} to={item}>
+            <Link className='flex-none' key={item.en} to={item.en}>
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
-                {item}
+                {item.sr}
               </li>
-              <div className='ml-4 w-12 h-12 border rounded-3xl '>vinjeta</div>
+              <img
+                alt=''
+                src={item.slika}
+                className='ml-4 w-12 h-12 border rounded-3xl'
+              ></img>
             </Link>
           ))}
         </ul>
         <div className='mr-4'>
           <img
+            alt=''
             onClick={() => setIsOpen(!isOpen)}
-            className='   w-12 h-12 md:hidden hover:bg-blue-300'
+            className='w-12 h-12 md:hidden hover:bg-blue-300'
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png'
           ></img>
 
@@ -89,12 +110,12 @@ const Header = (props) => {
           </Link>
         ))}
       </ul>
-      <div className='w-full h-20 text-center bg-blue-200 text-white font-sans text-42 flex justify-center'>
+      {/* <div className='w-full h-20 text-center bg-blue-200 text-white font-sans text-42 flex justify-center'>
         <span className='flex sm:hidden'>XS</span>
         <span className='hidden sm:flex md:hidden'>SM</span>
         <span className='hidden md:flex lg:hidden'>MD</span>
         <span className='hidden lg:flex '>LG</span>
-      </div>
+      </div> */}
     </div>
   )
 }

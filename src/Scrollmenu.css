@@ -1,0 +1,46 @@
+.fromoutside {
+  width: 230px;
+  left: 75%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: fixed;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+@keyframes example {
+  0% {
+    left: 1200px;
+  }
+
+  100% {
+    left: 800px;
+  }
+}
+.tooltip {
+  position: relative;
+  border: 2px solid rgb(241, 62, 7);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: 8px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 140px;
+
+  color: rgb(245, 65, 10);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: -300%;
+  font-size: larger;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

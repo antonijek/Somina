@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Error from './Error.js'
+import throttle from 'lodash/throttle'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Aboutus from './about-us'
 import Contact from './contact.js'
 import Footer from './Footer'
 import Header from './header'
 import Products from './products'
 import Recipes from './recipes'
+import Scrollmenu from './Scrollmenu.js'
 import Teachings from './teachings'
 import Tests from './Tests.js'
-import SkrolovaniMenu from './SkrolovaniMenu.js'
 
 const array = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },
@@ -22,20 +21,20 @@ const array = [
 ]
 
 const App = () => {
-  const [show, setShow] = useState(false)
+  const [pos, setPos] = useState(false)
 
   useEffect(() => {
-    window.onscroll = () => {
-      window.pageYOffset > 100 ? setShow(true) : setShow(false)
+    document.onscroll = (e) => {
+      let scrolled = document.scrollingElement.scrollTop
+      scrolled >= 96 ? setPos(true) : setPos(false)
     }
-  })
-
+  }, [])
   return (
-    <div className='container mx-auto   mr-4 ml-4'>
+    <div className='container mx-auto px-4'>
       <Router>
         <Header />
         <Footer />
-        {show && <SkrolovaniMenu />}
+        {pos && <Scrollmenu />}
         {array.map((obj) => (
           <Route key={obj.string} path={obj.path}>
             {<obj.component />}

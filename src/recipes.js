@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-
+import { useState, useEffect } from 'react'
 const Recipes = () => {
-  return (
-    <div className=' container  mx-auto relative'>
-      <h2>Ovo su recepti...</h2>
-    </div>
-  )
+  const [top, setTop] = useState(12)
+
+  useEffect(() => {
+    setTop(window.pageYOffset)
+    console.log('broje je:' + window.pageYOffset)
+  }, [])
+
+  return <div className=' container  mx-auto relative'>Recepti...</div>
 }
 
 export default Recipes

@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
 
 const Contact = () => {
   return <div className=' bg-green-500'>KOntakt...</div>

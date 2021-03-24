@@ -25,10 +25,9 @@
   margin-top: 8px;
 }
 
-.tooltiptext {
+.tooltip-text {
   visibility: hidden;
   width: 140px;
-
   color: rgb(245, 65, 10);
   text-align: center;
   border-radius: 6px;
@@ -40,8 +39,28 @@
   font-size: larger;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltip-text {
   visibility: visible;
   animation-name: example;
   animation-duration: 1s;
+}
+
+.item-image {
+  opacity: 0.9;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+}
+
+.item-image:hover {
+  opacity: 1;
+}
+
+.is-active .item-image {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  filter: none;
 }

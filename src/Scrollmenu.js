@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import './Scrollmenu.css'
 const menu = [
   { sr: 'O nama', en: 'Aboutus', slika: '../slike/slika1.png' },
@@ -17,8 +16,8 @@ const Scrollmenu = () => {
         <NavLink activeClassName='is-active' to={item.en} key={item.en}>
           {' '}
           <div className='tooltip mx-36'>
-            <span className='tooltiptext'>{item.sr}</span>
-            <img src={item.slika} className='rounded-3xl' alt='' />
+            <span className='tooltip-text'>{item.sr}</span>
+            <img src={item.slika} className='rounded-3xl item-image object-cover' alt='' />
           </div>
         </NavLink>
       ))}

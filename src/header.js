@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const firstMenu = [
   { sr: 'O nama', en: 'aboutus', slika: '../slike/slika1.png' },
@@ -40,7 +39,7 @@ const Header = (props) => {
       <nav className='flex md:ml-24 justify-between'>
         <ul className='hidden md:flex    pr-3  '>
           {firstMenu.map((item) => (
-            <Link className='flex-none' key={item.en} to={item.en}>
+            <NavLink activeClassName='is-active' className=' flex-none' key={item.en} to={item.en}>
               {' '}
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
                 {item.sr}
@@ -48,9 +47,9 @@ const Header = (props) => {
               <img
                 alt=''
                 src={item.slika}
-                className='ml-4 w-12 h-12 border rounded-3xl '
+                className='item-image ml-4 w-12 h-12 border rounded-3xl '
               ></img>
-            </Link>
+            </NavLink>
           ))}
         </ul>
         <Link to='/'>
@@ -65,16 +64,16 @@ const Header = (props) => {
 
         <ul className='hidden md:flex   pr-3  '>
           {secondMenu.map((item) => (
-            <Link className='flex-none' key={item.en} to={item.en}>
+            <NavLink  activeClassName='is-active' className='flex-none' key={item.en} to={item.en}>
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
                 {item.sr}
               </li>
               <img
                 alt=''
                 src={item.slika}
-                className='ml-4 w-12 h-12 border rounded-3xl'
+                className='item-image  ml-4 w-12 h-12 border rounded-3xl'
               ></img>
-            </Link>
+            </NavLink>
           ))}
         </ul>
         <div className='mr-4'>

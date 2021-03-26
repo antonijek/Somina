@@ -1,6 +1,6 @@
-import throttle from 'lodash/throttle'
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './Home.js'
 import Aboutus from './about-us'
 import Contact from './contact.js'
 import Footer from './Footer'
@@ -10,8 +10,9 @@ import Recipes from './recipes'
 import Scrollmenu from './Scrollmenu.js'
 import Teachings from './teachings'
 import Tests from './Tests.js'
+import ErrorPage from './ErrorPage.js'
 
-const array = [
+const arrayOfComponents = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },
   { component: Products, string: 'products', path: '/products' },
   { component: Recipes, string: 'recipes', path: '/recipes' },
@@ -34,12 +35,22 @@ const App = () => {
       <Router>
         <Header />
         <Footer />
+
         {pos && <Scrollmenu />}
-        {array.map((obj) => (
-          <Route key={obj.string} path={obj.path}>
-            {<obj.component />}
+        <Switch>
+          <Route exact path='/'>
+            <Home />
           </Route>
-        ))}
+          {arrayOfComponents.map((component) => (
+            <Route key={component.string} path={component.path}>
+              {<component.component />}
+            </Route>
+          ))}
+
+          <Route path='*'>
+            <ErrorPage />
+          </Route>
+        </Switch>
       </Router>
     </div>
   )

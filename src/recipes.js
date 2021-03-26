@@ -3,12 +3,15 @@ import { useState, useEffect } from 'react'
 const Recipes = () => {
   const [top, setTop] = useState(12)
 
-  useEffect(() => {
-    setTop(window.pageYOffset)
-    console.log('broje je:' + window.pageYOffset)
-  }, [])
-
-  return <div className=' container  mx-auto relative'>Recepti...</div>
+  return (
+    <div className=' container  mx-auto relative'>
+      <img
+        src='../slike/slika1.png'
+        className='w-24 rounded-full h-auto'
+        alt=''
+      />
+    </div>
+  )
 }
 
 export default Recipes

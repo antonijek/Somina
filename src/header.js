@@ -39,7 +39,12 @@ const Header = (props) => {
       <nav className='flex md:ml-24 justify-between'>
         <ul className='hidden md:flex    pr-3  '>
           {firstMenu.map((item) => (
-            <NavLink activeClassName='is-active' className=' flex-none' key={item.en} to={item.en}>
+            <NavLink
+              activeClassName='is-active'
+              className=' flex-none'
+              key={item.en}
+              to={item.en}
+            >
               {' '}
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
                 {item.sr}
@@ -47,24 +52,27 @@ const Header = (props) => {
               <img
                 alt=''
                 src={item.slika}
-                className='item-image ml-4 w-12 h-12 border rounded-3xl '
+                className='item-image ml-4 w-12 h-12 rounded-full'
               ></img>
             </NavLink>
           ))}
         </ul>
-        <Link to='/'>
-          <div className='w-24 h-24 '>
-            <img
-              className=' w-28 h-28 rounded-2xlobject-none text-center '
-              src='../slike/slika7.png'
-              alt=''
-            />
-          </div>
-        </Link>
+        <NavLink activeClassName='is-active-logo' exact to='/'>
+          <img
+            src='../slike/slika7.png'
+            className='logo w-24 h-24'
+            alt=''
+          ></img>
+        </NavLink>
 
         <ul className='hidden md:flex   pr-3  '>
           {secondMenu.map((item) => (
-            <NavLink  activeClassName='is-active' className='flex-none' key={item.en} to={item.en}>
+            <NavLink
+              activeClassName='is-active'
+              className='flex-none'
+              key={item.en}
+              to={item.en}
+            >
               <li className=' font-bold pr-2 pl-2 hover:underline hover:text-blue-500'>
                 {item.sr}
               </li>

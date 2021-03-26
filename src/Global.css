@@ -12,13 +12,12 @@
 @keyframes example {
   0% {
     right: -10%;
-    opacity: 0;
   }
 }
 
 .tooltip {
   position: relative;
-  border: 2px solid rgb(241, 62, 7);
+
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -27,16 +26,18 @@
 
 .tooltip-text {
   visibility: hidden;
-  width: 140px;
-  color: rgb(245, 65, 10);
+  width: 100px;
+  color: rgb(246, 75, 7);
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 5px 0px;
   position: absolute;
   z-index: 1;
   top: 5px;
-  left: -300%;
+  left: -210%;
   font-size: larger;
+  font-weight: 800;
+  background-color: white;
 }
 
 .tooltip:hover .tooltip-text {
@@ -46,12 +47,14 @@
 }
 
 .item-image {
+  padding: 1px;
   opacity: 0.9;
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
   filter: grayscale(100%);
   filter: gray; /* IE 6-9 */
+  border: 1px solid tomato;
 }
 
 .item-image:hover {
@@ -63,4 +66,12 @@
   -moz-filter: none;
   -ms-filter: none;
   filter: none;
+}
+.logo {
+  border: none;
+}
+
+.is-active-logo .logo {
+  border: 2px solid rgb(7, 97, 180);
+  border-radius: 25%;
 }

@@ -31,26 +31,30 @@ const App = () => {
     };
   }, []);
   return (
-    <Router>
-      <Header />
-      <Footer />
+    <div>
+      <Router>
+        <Header />
 
-      {pos && <Scrollmenu />}
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        {arrayOfComponents.map((component) => (
-          <Route key={component.string} path={component.path}>
-            {<component.component />}
+        {pos && <Scrollmenu />}
+        <Switch>
+          <Route exact path="/">
+            <div className="min-h-screen">
+              <Home />
+            </div>
           </Route>
-        ))}
+          {arrayOfComponents.map((component) => (
+            <Route key={component.string} path={component.path}>
+              <div className="min-h-screen">{<component.component />}</div>
+            </Route>
+          ))}
 
-        <Route path="*">
-          <PageNotFound />
-        </Route>
-      </Switch>
-    </Router>
+          <Route path="*">
+            <PageNotFound />
+          </Route>
+        </Switch>
+      </Router>
+      <Footer />
+    </div>
   );
 };
 

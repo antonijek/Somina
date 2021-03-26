@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 const Home = () => {
   return (
-    <div className='container'>
-      <div className='flex'>
+    <div className="container mx-auto px-4 py-10">
+      <div className="flex flex-col md:flex-row">
         <img
-          src='https://www.eparhija.me/images/manastir-somina.jpg'
-          className='max-w-auto '
-          alt=''
-        ></img>
-        <div>
-          <h2 className='text-3xl text-red-500 y-0'>Manastir Somina</h2>
+          src="https://www.eparhija.me/images/manastir-somina.jpg"
+          className="max-w-auto "
+          alt=""
+        />
+        <div className="md:pl-4 mt-4 md:mt-0">
+          <h2 className="text-3xl text-red-500 ">Manastir Somina</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Accusantium, fugiat earum vero, pariatur necessitatibus porro magni
@@ -24,8 +24,8 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div>
-        <h6>Naslov</h6>
+      <div className="mt-4">
+        <h6 className="text-24 font-bold">Naslov</h6>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
           voluptatem at eos cumque numquam dignissimos eaque quaerat, tenetur
@@ -49,7 +49,7 @@ const Home = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

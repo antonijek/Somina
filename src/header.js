@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const firstMenu = [
-  { sr: 'O nama', en: 'aboutus', slika: '../slike/slika1.png' },
+  { sr: 'O nama', en: 'about-us', slika: '../slike/slika1.png' },
   { sr: 'Recepti', en: 'recipes', slika: '../slike/slika2.png' },
   { sr: 'Pouke', en: 'teachings', slika: '../slike/slika3.png' },
 ];
@@ -24,7 +24,7 @@ const Header = (props) => {
   useEffect(() => {
     isOpen
       ? setMenu([
-          'aboutus',
+          'about-us',
           'products',
           'recipes',
           'teachings',

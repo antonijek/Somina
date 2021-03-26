@@ -1,0 +1,78 @@
+.fromoutside {
+  width: 230px;
+  right: 0;
+  top: 50%;
+  opacity: 1;
+  transform: translateY(-50%);
+  position: fixed;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+@keyframes example {
+  0% {
+    right: -10%;
+  }
+}
+
+.tooltip {
+  position: relative;
+
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: 8px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 100px;
+  color: rgb(246, 75, 7);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0px;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: -210%;
+  font-size: larger;
+  font-weight: 800;
+  background-color: white;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+.item-image {
+  padding: 1px;
+  opacity: 0.9;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+  border: 1px solid tomato;
+}
+
+.item-image:hover {
+  opacity: 1;
+}
+
+.is-active .item-image {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  filter: none;
+}
+
+.logo {
+  border: none;
+}
+
+.is-active-logo .logo {
+  border: 2px solid rgb(7, 97, 180);
+  border-radius: 25%;
+}

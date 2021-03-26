@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class Aboutus extends Component {
-  state = {}
+class AboutUs extends Component {
+  state = {};
   render() {
-    return (
-      <div className=' container  mx-auto px-4'>
-        <img src='https://www.eparhija.me/images/manastir-somina.jpg'></img>
-      </div>
-    )
+    return <div className="container mx-auto px-4"></div>;
   }
 }
 
-export default Aboutus
+export default AboutUs;

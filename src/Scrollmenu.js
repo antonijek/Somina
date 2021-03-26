@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './Global.css'
 const menu = [
   { sr: 'O nama', en: 'Aboutus', slika: '../slike/slika1.png' },
   { sr: 'Recepti', en: 'Recipes', slika: '../slike/slika2.png' },

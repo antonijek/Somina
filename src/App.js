@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './Home.js'
 import Aboutus from './about-us'
-import Contact from './contact.js'
+import Contact from './contact'
 import Footer from './Footer'
 import Header from './header'
 import Products from './products'
 import Recipes from './recipes'
-import Scrollmenu from './Scrollmenu.js'
+import Scrollmenu from './Scrollmenu'
 import Teachings from './teachings'
-import Tests from './Tests.js'
-import ErrorPage from './ErrorPage.js'
+import Tests from './Tests'
+import PageNotFound from './PageNotFound'
 
 const arrayOfComponents = [
   { component: Aboutus, string: 'aboutus', path: '/aboutus' },
@@ -48,7 +48,7 @@ const App = () => {
           ))}
 
           <Route path='*'>
-            <ErrorPage />
+            <PageNotFound />
           </Route>
         </Switch>
       </Router>

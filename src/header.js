@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
+import Hamburger from 'hamburger-react';
 const firstMenu = [
-  { sr: 'O nama', en: 'about-us', image: '../slike/slika1.png' },
+  { sr: 'Pocetna', en: '', image: '../slike/slika1.png' },
   { sr: 'Recepti', en: 'recipes', image: '../slike/slika2.png' },
   { sr: 'Pouke', en: 'teachings', image: '../slike/slika3.png' },
 ];
@@ -15,16 +15,11 @@ const secondMenu = [
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState([]);
-  const [en, setEn] = useState([]);
-
-  const language = () => {
-    en.length === 0 ? setEn(['EN', 'SR']) : setEn([]);
-  };
 
   useEffect(() => {
     isOpen
       ? setMenu([
-          'about-us',
+          'home',
           'products',
           'recipes',
           'teachings',
@@ -45,9 +40,9 @@ const Header = (props) => {
                   activeClassName="is-active"
                   className="flex flex-col items-center justify-center pr-4 w-24"
                   key={item.en}
+                  exact
                   to={item.en}
                 >
-                  {' '}
                   <li className=" font-bold hover:underline hover:text-blue-500">
                     {item.sr}
                   </li>
@@ -59,7 +54,7 @@ const Header = (props) => {
                 </NavLink>
               ))}
             </ul>
-            <NavLink activeClassName="is-active-logo" exact to="/">
+            <NavLink activeClassName="is-active-logo" exact to="">
               <img
                 src="../slike/slika7.png"
                 className="logo w-24 h-24"
@@ -87,19 +82,14 @@ const Header = (props) => {
               ))}
             </ul>
             <div className="md:hidden">
-              <img
-                alt=""
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-12 h-12  hover:bg-blue-300"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
-              ></img>
+              <Hamburger toggled={isOpen} toggle={setIsOpen} size={40} />
             </div>
           </nav>
 
-          <ul className=" md:hidden divide-y divide-blue-300 text-center text-lg font-bold bg-gray-500 relative z-100">
+          <ul className=" my-4 md:hidden  text-center text-lg font-bold bg-gray-500 relative z-100">
             {menu.map((item) => (
               <Link onClick={() => setIsOpen(!isOpen)} to={item} key={item}>
-                <li className="h-10 p-2 ">{item}</li>
+                <li className="h-10 p-2 hover:text-red-500">{item}</li>
               </Link>
             ))}
           </ul>

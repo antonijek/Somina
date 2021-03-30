@@ -12,7 +12,7 @@ const secondMenu = [
   { sr: 'Test', path: 'tests', image: '../slike/slika6.png' },
 ];
 
-const smallMenu = [
+const menuMobile = [
   { name: 'Pocetna', path: '/' },
   { name: 'Recepti', path: '/recepti' },
   { name: 'Pouke', path: '/pouke' },
@@ -25,7 +25,7 @@ const Header = (props) => {
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    isOpen ? setMenu(smallMenu) : setMenu([]);
+    isOpen ? setMenu(menuMobile) : setMenu([]);
   }, [isOpen]);
 
   return (

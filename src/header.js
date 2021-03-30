@@ -13,12 +13,12 @@ const secondMenu = [
 ];
 
 const smallMenu = [
-  { name: 'pocetna', path: '/' },
-  { name: 'recepti', path: '/recepti' },
-  { name: 'pouke', path: '/pouke' },
-  { name: 'kontakt', path: '/kontakt' },
-  { name: 'tests', path: '/tests' },
-  { name: 'proizvodi', path: '/proizvodi' },
+  { name: 'Pocetna', path: '/' },
+  { name: 'Recepti', path: '/recepti' },
+  { name: 'Pouke', path: '/pouke' },
+  { name: 'Kontakt', path: '/kontakt' },
+  { name: 'Proizvodi', path: '/proizvodi' },
+  { name: 'Tests', path: '/tests' },
 ];
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);

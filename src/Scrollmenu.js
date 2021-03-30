@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 const menu = [
-  { name: 'pocetna', path: '/', slika: '../slike/slika1.png' },
-  { name: 'recepti', path: '/recepti', slika: '../slike/slika2.png' },
-  { name: 'pouke', path: '/pouke', slika: '../slike/slika3.png' },
-  { name: 'kontakt', path: '/kontakt', slika: '../slike/slika4.png' },
-  { name: 'proizvodi', path: '/proizvodi', slika: '../slike/slika5.png' },
-  { name: 'tests', path: '/tests', slika: '../slike/slika6.png' },
+  { name: 'Pocetna', path: '/', slika: '../slike/slika1.png' },
+  { name: 'Recepti', path: '/recepti', slika: '../slike/slika2.png' },
+  { name: 'Pouke', path: '/pouke', slika: '../slike/slika3.png' },
+  { name: 'Kontakt', path: '/kontakt', slika: '../slike/slika4.png' },
+  { name: 'Proizvodi', path: '/proizvodi', slika: '../slike/slika5.png' },
+  { name: 'Tests', path: '/tests', slika: '../slike/slika6.png' },
 ];
 const Scrollmenu = () => {
   return (

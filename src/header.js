@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Hamburger from 'hamburger-react';
+
 const firstMenu = [
   { sr: 'Pocetna', path: '', image: '../slike/slika1.png' },
   { sr: 'Recepti', path: 'recepti', image: '../slike/slika2.png' },

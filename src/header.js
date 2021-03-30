@@ -21,11 +21,18 @@ const smallMenu = [
   { name: 'Tests', path: '/tests' },
 ];
 const Header = (props) => {
+  const [icon, setIcon] = useState('../slike/menu.svg');
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    isOpen ? setMenu(smallMenu) : setMenu([]);
+    if (isOpen) {
+      setIcon('../slike/x.svg');
+      setMenu(smallMenu);
+    } else {
+      setMenu([]);
+      setIcon('../slike/menu.svg');
+    }
   }, [isOpen]);
 
   return (
@@ -81,7 +88,14 @@ const Header = (props) => {
               ))}
             </ul>
             <div className="md:hidden">
-              <Hamburger toggled={isOpen} toggle={setIsOpen} size={40} />
+              <img
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+                className="w-16"
+                src={icon}
+                alt=""
+              />
             </div>
           </nav>
 

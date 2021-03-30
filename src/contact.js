@@ -1,7 +1,7 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 const Contact = () => {
-  return <div className=' bg-green-500'>KOntakt...</div>
-}
+  const [open, setOpen] = useState(false);
+  return <div className="material-icons">close</div>;
+};
 
-export default Contact
+export default Contact;

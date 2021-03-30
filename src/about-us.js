@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AboutUs extends Component {
-  state = {};
-  render() {
-    return <div className="container mx-auto px-4"></div>;
-  }
-}
+const AboutUs = (props) => {
+  return <div>{props.children}</div>;
+};
 
 export default AboutUs;

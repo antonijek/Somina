@@ -2,31 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Hamburger from 'hamburger-react';
 const firstMenu = [
-  { sr: 'Pocetna', en: '', image: '../slike/slika1.png' },
-  { sr: 'Recepti', en: 'recipes', image: '../slike/slika2.png' },
-  { sr: 'Pouke', en: 'teachings', image: '../slike/slika3.png' },
+  { sr: 'Pocetna', path: '', image: '../slike/slika1.png' },
+  { sr: 'Recepti', path: 'recepti', image: '../slike/slika2.png' },
+  { sr: 'Pouke', path: 'pouke', image: '../slike/slika3.png' },
 ];
 const secondMenu = [
-  { sr: 'Kontakt', en: 'contact', image: '../slike/slika4.png' },
-  { sr: 'Proizvodi', en: 'products', image: '../slike/slika5.png' },
-  { sr: 'Test', en: 'tests', image: '../slike/slika6.png' },
+  { sr: 'Kontakt', path: 'kontakt', image: '../slike/slika4.png' },
+  { sr: 'Proizvodi', path: 'proizvodi', image: '../slike/slika5.png' },
+  { sr: 'Test', path: 'tests', image: '../slike/slika6.png' },
 ];
 
+const smallMenu = [
+  { name: 'pocetna', path: '/' },
+  { name: 'recepti', path: '/recepti' },
+  { name: 'pouke', path: '/pouke' },
+  { name: 'kontakt', path: '/kontakt' },
+  { name: 'tests', path: '/tests' },
+  { name: 'proizvodi', path: '/proizvodi' },
+];
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    isOpen
-      ? setMenu([
-          'home',
-          'products',
-          'recipes',
-          'teachings',
-          'contact',
-          'tests',
-        ])
-      : setMenu([]);
+    isOpen ? setMenu(smallMenu) : setMenu([]);
   }, [isOpen]);
 
   return (
@@ -39,9 +38,9 @@ const Header = (props) => {
                 <NavLink
                   activeClassName="is-active"
                   className="flex flex-col items-center justify-center pr-4 w-24"
-                  key={item.en}
+                  key={item.path}
                   exact
-                  to={item.en}
+                  to={item.path}
                 >
                   <li className=" font-bold hover:underline hover:text-blue-500">
                     {item.sr}
@@ -67,8 +66,8 @@ const Header = (props) => {
                 <NavLink
                   activeClassName="is-active"
                   className="flex flex-col items-center justify-center pr-4 w-24"
-                  key={item.en}
-                  to={item.en}
+                  key={item.path}
+                  to={item.path}
                 >
                   <li className=" font-bold hover:underline hover:text-blue-500">
                     {item.sr}
@@ -88,8 +87,12 @@ const Header = (props) => {
 
           <ul className=" my-4 md:hidden  text-center text-lg font-bold bg-gray-500 relative z-100">
             {menu.map((item) => (
-              <Link onClick={() => setIsOpen(!isOpen)} to={item} key={item}>
-                <li className="h-10 p-2 hover:text-red-500">{item}</li>
+              <Link
+                onClick={() => setIsOpen(!isOpen)}
+                to={item.path}
+                key={item.path}
+              >
+                <li className="h-10 p-2 hover:text-red-500">{item.name}</li>
               </Link>
             ))}
           </ul>

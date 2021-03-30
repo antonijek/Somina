@@ -14,10 +14,10 @@ import PageNotFound from './PageNotFound';
 
 const arrayOfComponents = [
   { component: Home, string: 'home', path: '/home' },
-  { component: Products, string: 'products', path: '/products' },
-  { component: Recipes, string: 'recipes', path: '/recipes' },
-  { component: Teachings, string: 'teachings', path: '/teachings' },
-  { component: Contact, string: 'contact', path: '/contact' },
+  { component: Products, string: 'products', path: '/proizvodi' },
+  { component: Recipes, string: 'recipes', path: '/recepti' },
+  { component: Teachings, string: 'teachings', path: '/pouke' },
+  { component: Contact, string: 'contact', path: '/kontakt' },
   { component: Tests, string: 'tests', path: '/tests' },
 ];
 

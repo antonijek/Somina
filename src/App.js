@@ -31,7 +31,7 @@ const App = () => {
     };
   }, []);
   return (
-    <div>
+    <div className="">
       <Router>
         <Header />
 

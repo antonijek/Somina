@@ -1,49 +1,59 @@
-import React, { Component } from "react";
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Error from "./Error.js";
-import Aboutus from "./about-us";
-import Contact from "./contact.js";
-import Footer from "./Footer";
-import Header from "./header";
-import Products from "./products";
-import Recipes from "./recipes";
-import Teachings from "./teachings";
-import Tests from "./Tests.js";
-import SkrolovaniMenu from "./SkrolovaniMenu.js";
-import Gallery from "./Gallery";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home.js';
 
-const array = [
-  { component: Aboutus, string: "aboutus", path: "/aboutus" },
-  { component: Products, string: "products", path: "/products" },
-  { component: Recipes, string: "recipes", path: "/recipes" },
-  { component: Teachings, string: "teachings", path: "/teachings" },
-  { component: Contact, string: "contact", path: "/contact" },
-  { component: Tests, string: "tests", path: "/tests" },
+import Contact from './contact';
+import Footer from './Footer';
+import Header from './header';
+import Products from './products';
+import Recipes from './recipes';
+import Scrollmenu from './Scrollmenu';
+import Teachings from './teachings';
+import Tests from './Tests';
+import PageNotFound from './PageNotFound';
+
+const arrayOfComponents = [
+  { component: Home, string: 'home', path: '/home' },
+  { component: Products, string: 'products', path: '/proizvodi' },
+  { component: Recipes, string: 'recipes', path: '/recepti' },
+  { component: Teachings, string: 'teachings', path: '/pouke' },
+  { component: Contact, string: 'contact', path: '/kontakt' },
+  { component: Tests, string: 'tests', path: '/tests' },
 ];
 
 const App = () => {
-  const [show, setShow] = useState(false);
+  const [pos, setPos] = useState(false);
 
   useEffect(() => {
-    window.onscroll = () => {
-      window.pageYOffset > 100 ? setShow(true) : setShow(false);
+    document.onscroll = (e) => {
+      let scrolled = document.scrollingElement.scrollTop;
+      scrolled >= 96 ? setPos(true) : setPos(false);
     };
-  });
-
+  }, []);
   return (
-    <div className="">
+    <div>
       <Router>
         <Header />
-        {show && <SkrolovaniMenu />}
-        {array.map((obj) => (
-          <Route key={obj.string} path={obj.path}>
-            {<obj.component />}
+
+        {pos && <Scrollmenu />}
+        <Switch>
+          <Route exact path="/">
+            <div className="min-h-screen">
+              <Home />
+            </div>
           </Route>
-        ))}
-        <Gallery />
-        <Footer />
+          {arrayOfComponents.map((component) => (
+            <Route key={component.string} path={component.path}>
+              <div className="min-h-screen">{<component.component />}</div>
+            </Route>
+          ))}
+
+          <Route path="*">
+            <PageNotFound />
+          </Route>
+        </Switch>
       </Router>
+      <Footer />
     </div>
   );
 };

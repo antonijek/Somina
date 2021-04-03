@@ -1,15 +1,7 @@
-import React, { Component } from 'react'
-
+import React, { useState } from 'react';
 const Contact = () => {
-  return (
-    <div className=' container px-4 mx-auto bg-green-200 flex flex-row '>
-      <div className=''>
-        <h2>hlkhgsldfhowuyfgIY</h2>
-      </div>
+  const [open, setOpen] = useState(false);
+  return <div className="material-icons">close</div>;
+};
 
-      <img src='https://www.eparhija.me/images/manastir-somina.jpg'></img>
-    </div>
-  )
-}
-
-export default Contact
+export default Contact;

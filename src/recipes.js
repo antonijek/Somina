@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 const Recipes = () => {
-  return (
-    <div className=' container  mx-auto relative'>
-      <h2>Ovo su recepti...</h2>
-    </div>
-  )
-}
+  const [top, setTop] = useState(12);
 
-export default Recipes
+  return (
+    <div className=" container  mx-auto relative">
+      <img
+        src="../slike/slika1.png"
+        className="w-24 rounded-full h-auto"
+        alt=""
+      />
+    </div>
+  );
+};
+
+export default Recipes;

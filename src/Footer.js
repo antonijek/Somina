@@ -1,23 +1,16 @@
 const Footer = () => {
-	return (
-		<footer className="container mx-auto w-screen justify-between flex flex-col bottom-0 p-5 bg-blue-200 md:flex-row">
-			<a href="#" className="text-gray-600 hover:text-gray-100">
-				Services
-			</a>
-			<a href="#" className="text-gray-600 hover:text-gray-100">
-				Products
-			</a>
-			<a href="#" className="text-gray-600 hover:text-gray-100">
-				Portfolio
-			</a>
-			<a href="#" className="text-gray-600 hover:text-gray-100">
-				About
-			</a>
-			<p href="#" className="text-gray-100 italic">
-				Powered by ClickNik©
-			</p>
-		</footer>
-	);
+  return (
+    <div className="w-full bg-blue-700">
+      <div className="container mx-auto px-4">
+        <footer className=" flex flex-col text-xs py-4">
+          <div className="flex justify-between text-blue-300 italic">
+            <p>© All rights reserved</p>
+            <p>Powered by ClickNik</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

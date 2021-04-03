@@ -1,4 +1,5 @@
 import React from 'react';
+import Gallery from './Gallery';
 
 const Home = () => {
   return (
@@ -48,6 +49,7 @@ const Home = () => {
           cupiditate iure nihil omnis, cumque quod. Aut, in!
         </p>
       </div>
+      <Gallery />
     </div>
   );
 };

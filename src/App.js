@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home.js';
-
+import Ppp from './ppp.js';
 import Contact from './contact';
 import Footer from './Footer';
 import Header from './header';
@@ -33,6 +33,7 @@ const App = () => {
   return (
     <div>
       <Router>
+        <Ppp />
         <Header />
 
         {pos && <Scrollmenu />}

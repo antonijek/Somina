@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Home from './Home.js';
 
 import Contact from './contact';
@@ -30,11 +31,11 @@ const App = () => {
       scrolled >= 96 ? setPos(true) : setPos(false);
     };
   }, []);
+
   return (
     <div className="">
       <Router>
         <Header />
-
         {pos && <Scrollmenu />}
         <Switch>
           <Route exact path="/">

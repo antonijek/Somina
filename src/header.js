@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import { MdMenu } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 const firstMenu = [
   { sr: 'Pocetna', path: '', image: '../slike/slika1.png' },
   { sr: 'Recepti', path: 'recepti', image: '../slike/slika2.png' },
@@ -21,17 +23,17 @@ const smallMenu = [
   { name: 'Tests', path: '/tests' },
 ];
 const Header = (props) => {
-  const [icon, setIcon] = useState('../slike/menu.svg');
+  const [icon, setIcon] = useState(<MdMenu size={48} />);
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     if (isOpen) {
-      setIcon('../slike/x.svg');
+      setIcon(<MdClose size={48} />);
       setMenu(smallMenu);
     } else {
       setMenu([]);
-      setIcon('../slike/menu.svg');
+      setIcon(<MdMenu size={48} />);
     }
   }, [isOpen]);
 
@@ -88,14 +90,14 @@ const Header = (props) => {
               ))}
             </ul>
             <div className="md:hidden">
-              <img
+              <button
+                className=""
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
-                className="w-16"
-                src={icon}
-                alt=""
-              />
+              >
+                {icon}
+              </button>
             </div>
           </nav>
         </div>

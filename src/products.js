@@ -1,5 +1,6 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 const Proiz = [
   {
     name: 'melem',
@@ -37,23 +38,26 @@ const Proiz = [
     cijena: '15 evra',
     slika: 'ovdje ce da ide neka slika',
   },
-]
+];
 
 const Proizvod = () => {
-  const [pro, setPro] = useState({ ja: 22 })
+  const [pro, setPro] = useState({ ja: 22 });
   const dugme = (e) => {
-    setPro(e)
-    console.log(e)
-  }
+    setPro(e);
+    console.log(e);
+  };
 
   return (
-    <div className=' container  mx-auto relative'>
+    <div className=" container  mx-auto relative">
+      <Helmet>
+        <title>Somina | proizvodi</title>
+      </Helmet>
       {Proiz.map((item) => (
         <div key={item.id}>
           <h2
-            className=' bg-gray-300 text-center'
+            className=" bg-gray-300 text-center"
             onClick={(e) => {
-              dugme(item)
+              dugme(item);
             }}
           >
             {item.name}
@@ -61,15 +65,15 @@ const Proizvod = () => {
         </div>
       ))}
 
-      <div className='mt-8 text-center'>
-        <p className='bg-gray-500 text-green-500 text-2xl'>{pro.name}</p>
-        <p className='bg-gray-500  text-green-500 text-2xl'>{pro.id}</p>
+      <div className="mt-8 text-center">
+        <p className="bg-gray-500 text-green-500 text-2xl">{pro.name}</p>
+        <p className="bg-gray-500  text-green-500 text-2xl">{pro.id}</p>
 
-        <p className=' bg-gray-500 text-green-500 text-2xl'>{pro.cijena}</p>
-        <p className=' bg-gray-500 text-green-500 text-2xl'>{pro.slika}</p>
+        <p className=" bg-gray-500 text-green-500 text-2xl">{pro.cijena}</p>
+        <p className=" bg-gray-500 text-green-500 text-2xl">{pro.slika}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Proizvod
+export default Proizvod;

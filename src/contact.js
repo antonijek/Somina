@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
-const Contact = () => {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="material-icons">
-      <Helmet>
-        <title>Somina | kontakt</title>
-      </Helmet>
-    </div>
-  );
+import React from 'react';
+
+const Contact = (props) => {
+  return <div> evo nesto</div>;
 };
 
 export default Contact;

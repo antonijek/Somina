@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+
 const url = 'https://jsonplaceholder.typicode.com/posts';
 
-const Tests = () => {
+const Tests = (props) => {
   const [text, setText] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,9 +21,6 @@ const Tests = () => {
   }
   return (
     <div className="px-4 container mx-auto ">
-      <Helmet>
-        <title>Somina | tests</title>
-      </Helmet>
       <h2 className="font-bold mb-8">Ovo su podaci sa nekog servera:</h2>
       {text.map((item) => (
         <h3 key={item.id}>

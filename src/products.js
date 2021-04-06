@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+
 const Proiz = [
   {
     name: 'melem',
@@ -40,7 +40,7 @@ const Proiz = [
   },
 ];
 
-const Proizvod = () => {
+const Proizvod = (props) => {
   const [pro, setPro] = useState({ ja: 22 });
   const dugme = (e) => {
     setPro(e);
@@ -49,9 +49,6 @@ const Proizvod = () => {
 
   return (
     <div className=" container  mx-auto relative">
-      <Helmet>
-        <title>Somina | proizvodi</title>
-      </Helmet>
       {Proiz.map((item) => (
         <div key={item.id}>
           <h2

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet';
 import Home from './Home.js';
 
 import Contact from './contact';
@@ -14,15 +14,40 @@ import Tests from './Tests';
 import PageNotFound from './PageNotFound';
 
 const arrayOfComponents = [
-  { component: Home, string: 'home', path: '/home' },
-  { component: Products, string: 'products', path: '/proizvodi' },
-  { component: Recipes, string: 'recipes', path: '/recepti' },
-  { component: Teachings, string: 'teachings', path: '/pouke' },
-  { component: Contact, string: 'contact', path: '/kontakt' },
-  { component: Tests, string: 'tests', path: '/tests' },
+  { component: Home, string: 'home', path: '/home', title: '' },
+  {
+    component: Products,
+    string: 'products',
+    path: '/proizvodi',
+    title: 'Somina | proizvodi',
+  },
+  {
+    component: Recipes,
+    string: 'recipes',
+    path: '/recepti',
+    title: 'Somina | recepti',
+  },
+  {
+    component: Teachings,
+    string: 'teachings',
+    path: '/pouke',
+    title: 'Somina | pouke',
+  },
+  {
+    component: Contact,
+    string: 'contact',
+    path: '/kontakt',
+    title: 'Somina | kontakt',
+  },
+  {
+    component: Tests,
+    string: 'tests',
+    path: '/tests',
+    title: 'Somina | tests',
+  },
 ];
 
-const App = () => {
+const App = (props) => {
   const [pos, setPos] = useState(false);
 
   useEffect(() => {
@@ -45,7 +70,12 @@ const App = () => {
           </Route>
           {arrayOfComponents.map((component) => (
             <Route key={component.string} path={component.path}>
-              <div className="min-h-screen">{<component.component />}</div>
+              <div className="min-h-screen">
+                <Helmet>
+                  <title>{component.title}</title>
+                </Helmet>{' '}
+                {<component.component />}
+              </div>
             </Route>
           ))}
 

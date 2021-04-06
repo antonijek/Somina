@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Gallery from './Gallery';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="container mx-auto px-4 py-10">
       <Helmet>

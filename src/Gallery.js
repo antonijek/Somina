@@ -67,6 +67,12 @@ const Gallery = () => {
     return () => window.removeEventListener('keydown', handleModalKeydowns);
   }, [index]);
 
+  useEffect(() => {
+    modal
+      ? document.body.classList.add('overflow-hidden')
+      : document.body.classList.remove('overflow-hidden');
+  }, [modal]);
+
   const handleLeftButtonMouseEnter = () => {
     if (index === 0) {
       setLeftButtonState(true);
@@ -85,6 +91,7 @@ const Gallery = () => {
   };
 
   const toggleModal = () => {
+    // window.scrollTo(0, window.scrollY);
     setModal(!modal);
   };
 
@@ -120,7 +127,7 @@ const Gallery = () => {
     <div className="container mx-auto">
       {/* SX SCREEN */}
       <div className="mt-28 px-4 mb-2 sm:hidden">
-        <a href="#">
+        <a>
           <img
             onClick={() => handleImageClick(galleryArray[0], 0)}
             src={galleryArray[0].imageSource}
@@ -135,7 +142,7 @@ const Gallery = () => {
       >
         {otherGalleryItems.map((item, index) => {
           return (
-            <a key={index} href="#">
+            <a key={index}>
               <img
                 onClick={() => handleImageClick(item, index + 1)}
                 src={item.imageSource}
@@ -148,8 +155,8 @@ const Gallery = () => {
         })}
       </div>
       {/* SM AND HIGHER SCREEN */}
-      <div className="flex flex-row m-2 justify-around mt-20 xs:hidden sm:flex">
-        <a href="#">
+      <div className="m-2 gap-2 justify-around mt-20 xs:hidden sm:flex">
+        <a>
           <img
             onClick={() => handleImageClick(galleryArray[0], 0)}
             src={galleryArray[0].imageSource}
@@ -158,7 +165,7 @@ const Gallery = () => {
         </a>
         {otherGalleryItems.map((item, index) => {
           return (
-            <a key={index} href="#">
+            <a key={index}>
               <img
                 onClick={() => handleImageClick(item, index + 1)}
                 src={item.imageSource}
@@ -170,19 +177,17 @@ const Gallery = () => {
       </div>
       {/* MODAL */}
       <div
-        tabIndex="-1"
         onKeyPress={toggleModal}
-        id="modal"
         className={`${
           modal ? '' : 'hidden'
         } fixed bottom-0 left-0 w-full h-full bg-gray-200 bg-opacity-80`}
       >
         <div className="flex w-full h-full mx-auto justify-center items-center">
-          <div className="container relative sm:max-w-sm xs:w-full">
+          <div className="container relative xs:w-full">
             <div>
               <button
                 onClick={toggleModal}
-                className="absolute -top-14 right-0 text-white text-16 font-extralight p-5"
+                className="absolute -top-16 right-0 text-white text-16 font-extralight p-5"
               >
                 X
               </button>
@@ -193,7 +198,7 @@ const Gallery = () => {
                 style={{
                   cursor: `${!leftButtonState ? 'pointer' : 'not-allowed'}`,
                 }}
-                className="absolute top-1/2 text-22 text-white"
+                className="absolute sm:ml-4 sm:bottom-1/2 bottom-0 text-32 text-white"
               >
                 <FaAngleLeft />
               </button>
@@ -204,15 +209,14 @@ const Gallery = () => {
                 style={{
                   cursor: `${!rightButtonState ? 'pointer' : 'not-allowed'}`,
                 }}
-                className="absolute top-1/2 text-22 text-white right-0"
+                className="absolute sm:mr-4 sm:bottom-1/2 bottom-0 text-32 text-white right-0"
               >
                 <FaAngleRight />
               </button>
             </div>
             <img
-              id="modalImg"
               src={imgSrcObject && imgSrcObject.imageSource}
-              className="max-w-full max-h-full mx-auto"
+              className="max-w-full sm:max-w-10/12 max-h-3/4 mx-auto"
             />
             <p className="text-center text-white font-extralight mt-5">{`${
               index + 1

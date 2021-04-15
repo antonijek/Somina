@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Home from './Home.js';
+import Home from './components/Home.js';
 
-import Contact from './contact';
-import Footer from './Footer';
-import Header from './header';
-import Products from './products';
-import Recipes from './recipes';
-import Scrollmenu from './Scrollmenu';
-import Teachings from './teachings';
-import Tests from './Tests';
-import PageNotFound from './PageNotFound';
+import Contact from './components/contact';
+import Footer from './components/Footer.js';
+import Header from './components/header';
+import Products from './components/products';
+import Recipes from './components/recipes';
+import Scrollmenu from './components/Scrollmenu';
+import Teachings from './components/teachings';
+import Tests from './components/Tests';
+import PageNotFound from './components/PageNotFound';
 
 const arrayOfComponents = [
   { component: Home, string: 'home', path: '/home', title: '' },

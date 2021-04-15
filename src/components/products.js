@@ -1,13 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 const Proiz = [
   {
@@ -62,9 +54,9 @@ const Proizvod = (props) => {
   };
   let { path, url } = useRouteMatch();
   return (
-    <div className=" container  mx-auto relative">
+    <div className="container mx-auto relative px-4">
       {Proiz.map((item) => (
-        <div key={item.id} className=" bg-gray-300 text-center">
+        <div key={item.id} className="bg-gray-300 text-center">
           <Link to={url + item.path}>{item.name}</Link>
         </div>
       ))}
@@ -83,8 +75,8 @@ const Proizvod = (props) => {
         <p className="bg-gray-500 text-green-500 text-2xl">{pro.name}</p>
         <p className="bg-gray-500  text-green-500 text-2xl">{pro.id}</p>
 
-        <p className=" bg-gray-500 text-green-500 text-2xl">{pro.cijena}</p>
-        <p className=" bg-gray-500 text-green-500 text-2xl">{pro.slika}</p>
+        <p className="bg-gray-500 text-green-500 text-2xl">{pro.cijena}</p>
+        <p className="bg-gray-500 text-green-500 text-2xl">{pro.slika}</p>
       </div>
     </div>
   );

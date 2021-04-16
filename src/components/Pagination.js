@@ -21,8 +21,8 @@ const Pagination = (props) => {
   }, [open]);
 
   return (
-    <div>
-      <div className="flex justify-center  ">
+    <div className="container mx-auto">
+      <div className="flex justify-center">
         {props.currentPage > 0 && (
           <button
             onClick={props.prev}
@@ -30,11 +30,11 @@ const Pagination = (props) => {
           >
             {' '}
             {<GrLinkPrevious size={24} />}
-            <p className="ml-2">Previous</p>
+            <p className="">Previous</p>
           </button>
         )}
 
-        <div className=" flex ml-8 mr-8">
+        <div className=" flex mx-2">
           {numOfPages.slice(0, 3).map((number) => (
             <button
               key={number}
@@ -45,7 +45,7 @@ const Pagination = (props) => {
               {number}
             </button>
           ))}
-          <p className="ml-2 mr-2">. . .</p>
+          <p className="mx-1">. . .</p>
           {numOfPages
             .slice(numOfPages.length - 2, numOfPages.length)
             .map((number) => (
@@ -64,39 +64,32 @@ const Pagination = (props) => {
             onClick={props.next}
             className="flex bg-red-100  hover:bg-red-300 p-2"
           >
-            <p className="mr-2">Next </p>
+            <p className="">Next </p>
             {<GrLinkNext size={24} />}
           </button>
         )}
       </div>
-      <div className="relative flex justify-center mx-2 my-2">
-        <p className="">
-          Broj prikaza na strani je :{' '}
-          <span className="font-black">{props.postPerPage}</span>
+      <div className="flex justify-center  py-2">
+        <p onClick={() => setOpen(!open)} className="text-center mt-4 ">
+          Broj prikaza po stranici je :
+          <span className="font-bold ml-2">{props.postPerPage}</span>
         </p>
-      </div>
-      <div className="grid ml-60 -mt-4 ">
-        <p
-          onClick={() => setOpen(!open)}
-          className="font-bold flex justify-center"
-        >
-          {<MdArrowDropDown size={24} />}
-        </p>
-
-        {sugest.map((num) =>
-          num <= props.totalItems ? (
-            <button
-              key={num}
-              onClick={() => {
-                props.changeNumOfPosts(num);
-                setOpen(!open);
-              }}
-              className="flex justify-center"
-            >
-              {num}
-            </button>
-          ) : null,
-        )}
+        <div className=" w-12 h-8 grid grid-cols-1 divide-y ml-1 text-sm">
+          {sugest.map((num) =>
+            num <= props.totalItems ? (
+              <button
+                key={num}
+                onClick={() => {
+                  props.changeNumOfPosts(num);
+                  setOpen(!open);
+                }}
+                className="bg-gray-500 font-black"
+              >
+                {num}
+              </button>
+            ) : null,
+          )}
+        </div>
       </div>
     </div>
   );

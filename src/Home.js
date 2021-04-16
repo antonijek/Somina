@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Gallery from './Gallery';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="container mx-auto px-4 py-10">
+      <Helmet>
+        <title>Somina</title>
+      </Helmet>
       <div className="flex flex-col md:flex-row">
         <img
           src="https://www.eparhija.me/images/manastir-somina.jpg"

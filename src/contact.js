@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-const Contact = () => {
-  const [open, setOpen] = useState(false);
-  return <div className="material-icons">close</div>;
+import React from 'react';
+
+const Contact = (props) => {
+  return <div> evo nesto</div>;
 };
 
 export default Contact;

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import { MdMenu } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 const firstMenu = [
   { sr: 'Pocetna', path: '', image: '../slike/slika1.png' },
   { sr: 'Recepti', path: 'recepti', image: '../slike/slika2.png' },
@@ -21,24 +23,24 @@ const smallMenu = [
   { name: 'Tests', path: '/tests' },
 ];
 const Header = (props) => {
-  const [icon, setIcon] = useState('../slike/menu.svg');
+  const [icon, setIcon] = useState(<MdMenu size={48} />);
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     if (isOpen) {
-      setIcon('../slike/x.svg');
+      setIcon(<MdClose size={48} />);
       setMenu(smallMenu);
     } else {
       setMenu([]);
-      setIcon('../slike/menu.svg');
+      setIcon(<MdMenu size={48} />);
     }
   }, [isOpen]);
 
   return (
     <div className="bg-blue-400 ">
-      <div className="container mx-auto p-4">
-        <div className="relative h-24">
+      <div className="relative h-32">
+        <div className="container mx-auto p-4">
           <nav className="flex justify-between items-center">
             <ul className="hidden md:flex pr-3  ">
               {firstMenu.map((item) => (
@@ -88,35 +90,34 @@ const Header = (props) => {
               ))}
             </ul>
             <div className="md:hidden">
-              <img
+              <button
+                className=""
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
-                className="w-16"
-                src={icon}
-                alt=""
-              />
+              >
+                {icon}
+              </button>
             </div>
           </nav>
-
-          <ul className=" my-4 md:hidden  text-center text-lg font-bold bg-gray-500 relative z-100">
-            {menu.map((item) => (
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                to={item.path}
-                key={item.path}
-              >
-                <li className="h-10 p-2 hover:text-red-500">{item.name}</li>
-              </Link>
-            ))}
-          </ul>
-          {/* <div className='w-full h-20 text-center bg-blue-200 text-white font-sans text-42 flex justify-center'>
+        </div>
+        <ul className="md:hidden  text-center text-lg font-bold bg-gray-500 relative z-100">
+          {menu.map((item) => (
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              to={item.path}
+              key={item.path}
+            >
+              <li className="h-10 p-2 hover:text-red-500">{item.name}</li>
+            </Link>
+          ))}
+        </ul>
+        {/* <div className='w-full h-20 text-center bg-blue-200 text-white font-sans text-42 flex justify-center'>
             <span className='flex sm:hidden'>XS</span>
             <span className='hidden sm:flex md:hidden'>SM</span>
             <span className='hidden md:flex lg:hidden'>MD</span>
             <span className='hidden lg:flex '>LG</span>
           </div> */}
-        </div>
       </div>
     </div>
   );

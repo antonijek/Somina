@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
-const Recipes = () => {
+
+const Recipes = (props) => {
   const [top, setTop] = useState(12);
 
   return (

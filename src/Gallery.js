@@ -47,7 +47,7 @@ const galleryArray = [
 const otherGalleryItems = galleryArray.slice(1, 4);
 
 const Gallery = () => {
-  const [modal, setModal] = useState(false);
+  const [isModalOpened, setModal] = useState(false);
   const [index, setIndex] = useState(-1);
   const [imgSrcObject, setImgSrcObject] = useState(null);
   const [leftButtonState, setLeftButtonState] = useState(false);
@@ -68,10 +68,10 @@ const Gallery = () => {
   }, [index]);
 
   useEffect(() => {
-    modal
+    isModalOpened
       ? document.body.classList.add('overflow-hidden')
       : document.body.classList.remove('overflow-hidden');
-  }, [modal]);
+  }, [isModalOpened]);
 
   const handleLeftButtonMouseEnter = () => {
     if (index === 0) {
@@ -91,8 +91,7 @@ const Gallery = () => {
   };
 
   const toggleModal = () => {
-    // window.scrollTo(0, window.scrollY);
-    setModal(!modal);
+    setModal(!isModalOpened);
   };
 
   const settingIndexAndImgSrcObject = (index) => {
@@ -131,7 +130,7 @@ const Gallery = () => {
           <img
             onClick={() => handleImageClick(galleryArray[0], 0)}
             src={galleryArray[0].imageSource}
-            className="rounded-bl-3xl rounded-tr-3xl shadow-lg"
+            className="cursor-pointer rounded-bl-3xl rounded-tr-3xl shadow-lg"
           />
         </a>
       </div>
@@ -146,7 +145,7 @@ const Gallery = () => {
               <img
                 onClick={() => handleImageClick(item, index + 1)}
                 src={item.imageSource}
-                className={`h-14 rounded-tl-2xl rounded-br-2xl mb-2 shadow-md ${
+                className={`cursor-pointer h-14 rounded-tl-2xl rounded-br-2xl mb-2 shadow-md ${
                   otherGalleryItems.length < 3 && 'mr-2'
                 }`}
               />
@@ -160,7 +159,7 @@ const Gallery = () => {
           <img
             onClick={() => handleImageClick(galleryArray[0], 0)}
             src={galleryArray[0].imageSource}
-            className="h-28 rounded-bl-3xl rounded-tr-3xl shadow-xl"
+            className="cursor-pointer h-28 rounded-bl-3xl rounded-tr-3xl shadow-xl"
           />
         </a>
         {otherGalleryItems.map((item, index) => {
@@ -169,7 +168,7 @@ const Gallery = () => {
               <img
                 onClick={() => handleImageClick(item, index + 1)}
                 src={item.imageSource}
-                className="h-28 rounded-bl-3xl rounded-tr-3xl shadow-xl"
+                className="cursor-pointer h-28 rounded-bl-3xl rounded-tr-3xl shadow-xl"
               />
             </a>
           );
@@ -177,50 +176,53 @@ const Gallery = () => {
       </div>
       {/* MODAL */}
       <div
-        onKeyPress={toggleModal}
         className={`${
-          modal ? '' : 'hidden'
+          isModalOpened ? '' : 'hidden'
         } fixed bottom-0 left-0 w-full h-full bg-gray-200 bg-opacity-80`}
       >
-        <div className="flex w-full h-full mx-auto justify-center items-center">
-          <div className="container relative xs:w-full">
-            <div>
-              <button
-                onClick={toggleModal}
-                className="absolute -top-16 right-0 text-white text-16 font-extralight p-5"
-              >
-                X
-              </button>
-              <button
-                onMouseEnter={handleLeftButtonMouseEnter}
-                onMouseLeave={handleButtonMouseLeave}
-                onClick={() => handleArrowClick(-1)}
-                style={{
-                  cursor: `${!leftButtonState ? 'pointer' : 'not-allowed'}`,
-                }}
-                className="absolute sm:ml-4 sm:bottom-1/2 bottom-0 text-32 text-white"
-              >
-                <FaAngleLeft />
-              </button>
-              <button
-                onMouseEnter={handleRightButtonMouseEnter}
-                onMouseLeave={handleButtonMouseLeave}
-                onClick={() => handleArrowClick(1)}
-                style={{
-                  cursor: `${!rightButtonState ? 'pointer' : 'not-allowed'}`,
-                }}
-                className="absolute sm:mr-4 sm:bottom-1/2 bottom-0 text-32 text-white right-0"
-              >
-                <FaAngleRight />
-              </button>
+        <div className="w-full h-full relative">
+          <button
+            onClick={toggleModal}
+            className="absolute right-2 text-white text-32 px-4 opacity-80 hover:opacity-100 focus:outline-none"
+          >
+            &times;
+          </button>
+          <div className="flex w-full h-full mx-auto justify-center items-center">
+            <div className="container relative xs:w-full">
+              <div>
+                <button
+                  onMouseEnter={handleLeftButtonMouseEnter}
+                  onMouseLeave={handleButtonMouseLeave}
+                  onClick={() => handleArrowClick(-1)}
+                  style={{
+                    cursor: `${!leftButtonState ? 'pointer' : 'not-allowed'}`,
+                  }}
+                  className={`absolute sm:ml-4 sm:bottom-1/2 bottom-0 text-32 text-white focus:outline-none opacity-80 hover:opacity-100`}
+                >
+                  <FaAngleLeft />
+                </button>
+                <button
+                  onMouseEnter={handleRightButtonMouseEnter}
+                  onMouseLeave={handleButtonMouseLeave}
+                  onClick={() => handleArrowClick(1)}
+                  style={{
+                    cursor: `${!rightButtonState ? 'pointer' : 'not-allowed'}`,
+                  }}
+                  className="absolute sm:mr-4 sm:bottom-1/2 bottom-0 text-32 text-white right-0 focus:outline-none opacity-80 hover:opacity-100"
+                >
+                  <FaAngleRight />
+                </button>
+              </div>
+              <div className="relative pb-16/9 lg:pb-4/12 max-w-full sm:max-w-10/12 mx-auto">
+                <img
+                  src={imgSrcObject && imgSrcObject.imageSource}
+                  className="absolute object-contain w-full h-full top-0 left-0"
+                />
+              </div>
+              <p className="text-center text-white font-extralight mt-5">{`${
+                index + 1
+              } / ${galleryArray.length}`}</p>
             </div>
-            <img
-              src={imgSrcObject && imgSrcObject.imageSource}
-              className="max-w-full sm:max-w-10/12 max-h-3/4 mx-auto"
-            />
-            <p className="text-center text-white font-extralight mt-5">{`${
-              index + 1
-            } / ${galleryArray.length}`}</p>
           </div>
         </div>
       </div>

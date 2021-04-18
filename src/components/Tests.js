@@ -41,6 +41,7 @@ const Tests = (props) => {
     setIsLoading(true);
     if (currentPage < totalItems / postPerPage - 1) {
       setCurrentPage(currentPage + 1);
+      console.log(currentPage);
     }
   };
   const prev = (num) => {

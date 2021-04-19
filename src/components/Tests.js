@@ -9,7 +9,8 @@ const Tests = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [postPerPage, setPostPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
-  const [totalItems, setTotalItems] = useState(100);
+  const [totalItems, setTotalItems] = useState(1);
+  const [lastNum, setLastNum] = useState(5);
   useEffect(() => {
     const fetchData = async () => {
       const posts = await axios(
@@ -19,7 +20,7 @@ const Tests = (props) => {
           '&offset=' +
           currentPage * postPerPage,
       );
-      console.log(posts);
+
       setPost(posts.data.data);
       setTotalItems(posts.data.itemsTotal);
     };
@@ -31,6 +32,7 @@ const Tests = (props) => {
     setIsLoading(true);
     setPostPerPage(n);
     setCurrentPage(0);
+    setLastNum(n);
   };
   const showThePage = (num) => {
     setIsLoading(true);
@@ -41,7 +43,6 @@ const Tests = (props) => {
     setIsLoading(true);
     if (currentPage < totalItems / postPerPage - 1) {
       setCurrentPage(currentPage + 1);
-      console.log(currentPage);
     }
   };
   const prev = (num) => {
@@ -69,16 +70,19 @@ const Tests = (props) => {
           </div>
         ))}
       <div className="py-4">
-        <Pagination
-          next={next}
-          prev={prev}
-          totalItems={totalItems}
-          changeNumOfPosts={changeNumOfPosts}
-          showThePage={showThePage}
-          post={post}
-          currentPage={currentPage}
-          postPerPage={postPerPage}
-        />
+        {post.length > 0 ? (
+          <Pagination
+            next={next}
+            prev={prev}
+            totalItems={totalItems}
+            changeNumOfPosts={changeNumOfPosts}
+            showThePage={showThePage}
+            post={post}
+            currentPage={currentPage}
+            postPerPage={postPerPage}
+            lastNum={lastNum}
+          />
+        ) : null}
       </div>
     </div>
   );

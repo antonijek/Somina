@@ -1,16 +1,29 @@
 import { useState, useEffect } from 'react';
-import { MdArrowDropDown } from 'react-icons/md';
+
 import { GrLinkPrevious } from 'react-icons/gr';
 import { GrLinkNext } from 'react-icons/gr';
 const Pagination = (props) => {
   const [slide, setSlide] = useState(props.lastNum);
-
+  const [firstDots, setFirstDots] = useState('');
+  const [secondDots, setSecondDots] = useState('');
+  const [thirdDots, setThirdDots] = useState('');
+  const [fourthDots, setFourthDots] = useState('');
   const numOfPages = [];
   const pages = Math.ceil(props.totalItems / props.postPerPage);
 
   for (let i = 1; i <= pages; i++) {
     numOfPages.push(i);
   }
+  useEffect(() => {
+    props.currentPage > 3 ? setFirstDots('...') : setFirstDots('');
+    props.currentPage < numOfPages.length - 4
+      ? setSecondDots('...')
+      : setSecondDots('');
+    props.currentPage < 3 ? setThirdDots('...') : setThirdDots('');
+    props.currentPage > numOfPages.length - 4
+      ? setFourthDots('...')
+      : setFourthDots('');
+  });
 
   if (numOfPages.length < 7) {
     return (
@@ -74,11 +87,12 @@ const Pagination = (props) => {
                 {number}
               </button>
             ))}
+            <p>{fourthDots}</p>
 
-            <p className="mx-1">...</p>
             {props.currentPage > 2 &&
             props.currentPage < numOfPages.length - 3 ? (
               <div className="flex">
+                <p className="mx-1">{firstDots}</p>
                 {numOfPages
                   .slice(props.currentPage - 1, props.currentPage + 2)
                   .map((number) => (
@@ -94,7 +108,7 @@ const Pagination = (props) => {
                       {number}
                     </button>
                   ))}
-                <p className="mx-1">...</p>
+                <p className="mx-1">{secondDots}</p>
               </div>
             ) : null}
 
@@ -115,9 +129,9 @@ const Pagination = (props) => {
                       {number}
                     </button>
                   ))}
-                <p className="mx-1">...</p>
               </div>
             ) : null}
+
             {props.currentPage === numOfPages.length - 3 ? (
               <div className="flex">
                 {numOfPages
@@ -135,10 +149,9 @@ const Pagination = (props) => {
                       {number}
                     </button>
                   ))}
-                <p className="mx-1">...</p>
               </div>
             ) : null}
-
+            <p>{thirdDots}</p>
             {numOfPages
               .slice(numOfPages.length - 2, numOfPages.length)
               .map((number) => (

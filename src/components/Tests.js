@@ -11,19 +11,17 @@ const Tests = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalItems, setTotalItems] = useState(1);
   const [lastNum, setLastNum] = useState(5);
-  useEffect(() => {
-    const fetchData = async () => {
-      const posts = await axios(
-        url +
-          '?perPage=' +
-          postPerPage +
-          '&offset=' +
-          currentPage * postPerPage,
-      );
 
-      setPost(posts.data.data);
-      setTotalItems(posts.data.itemsTotal);
-    };
+  const fetchData = async () => {
+    const posts = await axios(
+      url + '?perPage=' + postPerPage + '&offset=' + currentPage * postPerPage,
+    );
+
+    setPost(posts.data.data);
+    setTotalItems(posts.data.itemsTotal);
+  };
+
+  useEffect(() => {
     fetchData();
     setIsLoading(false);
   }, [postPerPage, currentPage, isLoading]);
